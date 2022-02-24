@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 export default function App() {
   function xyz(textxyz,textxyz1,textxyz2,textxyz3,textxyz4){
-    let startX = 50;
+    let startX = 70;
     let startY = 40;
     const doc = new jsPDF("p", "pt");
     doc.setFont(undefined,"bold")
@@ -18,7 +18,7 @@ export default function App() {
     const inputValue2 = textxyz2
     const inputValue3 = textxyz3
     const inputValue4 = textxyz4
-    const endX = 500;
+    let endX = 420;
     let textMap = doc.splitTextToSize(
       inputValue,
       endX
@@ -54,13 +54,16 @@ export default function App() {
                   }
                   doc.text(textItems, startX, startY);
                   startX = startX + doc.getStringUnitWidth(textItems) * 14;
+                  return null;
               });
               boldOpen = isBoldOpen(arrayOfNormalAndBoldText.length, boldOpen);
               startX = startXCached;
               startY += 20;
           }
+          return null;
       });
-      startX=70;
+      endX = 400;
+      startX=95;
       startXCached = startX;
       textMap3.map((text, i) => {
           if (text) {
@@ -74,14 +77,17 @@ export default function App() {
                   }
                   doc.text(textItems, startX, startY);
                   startX = startX + doc.getStringUnitWidth(textItems) * 14;
+                  return null;
               });
               boldOpen = isBoldOpen(arrayOfNormalAndBoldText.length, boldOpen);
               startX = startXCached;
               startY += 20;
           }
+          return null;
       });
       doc.addPage()
-      startX = 70;
+      endX = 400;
+      startX = 95;
       startY = 40;
       textMap1.map((text, i) => {
           if (text) {
@@ -95,14 +101,17 @@ export default function App() {
                   }
                   doc.text(textItems, startX, startY);
                   startX = startX + doc.getStringUnitWidth(textItems) * 14;
+                  return null;
               });
               boldOpen = isBoldOpen(arrayOfNormalAndBoldText.length, boldOpen);
               startX = startXCached;
               startY += 20;
           }
+          return null;
       });
       doc.addPage()
-      startX = 70;
+      endX = 400;
+      startX = 95;
       startY = 40;
       textMap2.map((text, i) => {
           if (text) {
@@ -116,13 +125,15 @@ export default function App() {
                   }
                   doc.text(textItems, startX, startY);
                   startX = startX + doc.getStringUnitWidth(textItems) * 14;
+                  return null;
               });
               boldOpen = isBoldOpen(arrayOfNormalAndBoldText.length, boldOpen);
               startX = startXCached;
               startY += 20;
           }
+          return null;
       });
-      startX = 50;
+      startX = 70;
       startXCached = startX;
       textMap4.map((text, i) => {
           if (text) {
@@ -136,11 +147,13 @@ export default function App() {
                   }
                   doc.text(textItems, startX, startY);
                   startX = startX + doc.getStringUnitWidth(textItems) * 14;
+                  return null;
               });
               boldOpen = isBoldOpen(arrayOfNormalAndBoldText.length, boldOpen);
               startX = startXCached;
               startY += 20;
           }
+          return null;
       });
     
     doc.save(`rent.pdf`);
@@ -201,10 +214,10 @@ export default function App() {
     \nThat the Second Party has approached the First Party to let out of his Property Built up **${formData.propertyAddress.toUpperCase()}** .(Herein called the premises) on the following terms and conditions of this agreement as under :- 
     \n**NOW THIS RENT DEED WITNESSETH AS UNDER :-**
 `
-      let text4=`\n1. That the tenancy has commenced from **${formData.shiftingDate.toUpperCase()}** , for a period of **${formData.period.toUpperCase()}** MONTHS, which shall be extended for a further terms on such terms and conditions as mutually agreed between the parties. \n2. That the monthly rent settled between the Parties RS.**${formData.rent.toUpperCase()}**, Which shall be paid by the Second Party to the First Party in advance, as on or before 5th day of each English Calendar month.\n3. That the Second Party shall pay rent only through online mode of payment.\n
+      let text4=`\n1. That the tenancy has commenced from **${formData.shiftingDate.toUpperCase()}** , for a period of **${formData.period.toUpperCase()}** MONTHS, which shall be extended for a further terms on such terms and conditions as mutually agreed between the parties. \n2. That the monthly rent settled between the Parties RS.**${formData.rent.toUpperCase()}**, Which shall be paid by the Second Party to the First Party in advance, as on or before 5th day of each English Calendar month.\n
       `
-      let text2=`4. That the First Party has delivered the vacant possession with fully fitted items of the said property to the Second Party.\n5. That the Second Party shall pay Electricity bills & water bills charges excluding the monthly rent to the First party.\n6.That the Second Party will deliver the vacant possession of the said  property hereby demised to the First Party without any hindrance with ready conditions after the expiry of the period of this agreement.\n7. That the Second Party shall not make any additions, alterations, changes or renovations in the existing structure of the said premises hereby demised, without the prior written consent of the first party.\n8. That the Second Party paying the rents regularly and shall peacefully enjoy the said premises without any hindrance of the First Party.\n9. That the First Party or Second Party may vacant the said premises hereby demised after giving one month written notice of his / her/ their intention to do so to each other. \n10. That in case of default or nonpayment of rent for two consecutive months, the Tenancy will automatically stand terminated and the Tenant shall be under obligation to vacate the premises and handover vacant possession immediately to the first party.\n11. That the Second Party will not do any act in contravention of the property and the civil authorities in the Second Parties premises.\n12. That the Second party shall not use the said premises for storing and manufacturing any hazardous or inflammable material and shall be bound by the bye-laws of the local body in this regard. \n13.That all the terms shall be followed under the provision of the Delhi Rent Control Act and The Rules and By Law Frame the render and amended from time to time.\n14. That the Second Party will not do any illegal / unlawful activities in the said tenanted premises.\n15. That the First Party has rights to inspect the rented premises during day time at reasonable hours.\n16. That the First Party alone shall be entitled to determine the renewal of tenancy at the expiry of the period of the lease on the consent of the Second Party.\n17. That the Second Party shall not sublet the said premises to any other person of persons and not create any type of misuse in the said property or any part thereof or in properties hereby.\n18. That the damage inflicted upon the assets provided by the 3rd party will be recovered from the security deposit paid to the first party.\n`
-      let text3=`\n19. That if the Second Party shall make any misuse and theft of electricity etc. of the demised premises, then the Second Party shall be fully liable & responsible for the same on his / her own risk.\n20. That the First Party has received a sum of Rs. **${formData.security.toUpperCase()}** in advance as a Security amount which will be refundable after the expiry period of this rent agreement.\n21. That this Agreement has been prepared by the First Party at the expense of the Second Party and has been executed by the First Party & the Second Party.\n22.That this Rent Agreement is not valid for any bank loan & Credit Card.\n23. That after the expiry of this Agreement if both the parties have mutually agreed to extend the renting period then the rent will be increased **10%** minimum and maximum shall be depend at will on both parties\n24. That the period of tenancy can be renewed further with mutual consent of both the parties in writing.\n25. That the tenant shall abide by all the rules and regulations MCD / TPDDL / Delhi Administration or any other concerned authority remains. 
+      let text2=`3. That the Second Party shall pay rent only through online mode of payment.\n4. That the First Party has delivered the vacant possession with fully fitted items of the said property to the Second Party.\n5. That the Second Party shall pay Electricity bills & water bills charges excluding the monthly rent to the First party.\n6.That the Second Party will deliver the vacant possession of the said  property hereby demised to the First Party without any hindrance with ready conditions after the expiry of the period of this agreement.\n7. That the Second Party shall not make any additions, alterations, changes or renovations in the existing structure of the said premises hereby demised, without the prior written consent of the first party.\n8. That the Second Party paying the rents regularly and shall peacefully enjoy the said premises without any hindrance of the First Party.\n9. That the First Party or Second Party may vacant the said premises hereby demised after giving one month written notice of his / her/ their intention to do so to each other. \n10. That in case of default or nonpayment of rent for two consecutive months, the Tenancy will automatically stand terminated and the Tenant shall be under obligation to vacate the premises and handover vacant possession immediately to the first party.\n11. That the Second Party will not do any act in contravention of the property and the civil authorities in the Second Parties premises.\n12. That the Second party shall not use the said premises for storing and manufacturing any hazardous or inflammable material and shall be bound by the bye-laws of the local body in this regard. \n13.That all the terms shall be followed under the provision of the Delhi Rent Control Act and The Rules and By Law Frame the render and amended from time to time.\n14. That the Second Party will not do any illegal / unlawful activities in the said tenanted premises.\n15. That the First Party has rights to inspect the rented premises during day time at reasonable hours.`
+      let text3=`\n16. That the First Party alone shall be entitled to determine the renewal of tenancy at the expiry of the period of the lease on the consent of the Second Party.\n\n17. That the Second Party shall not sublet the said premises to any other person of persons and not create any type of misuse in the said property or any part thereof or in properties hereby.\n18. That the damage inflicted upon the assets provided by the 3rd party will be recovered from the security deposit paid to the first party.\n\n19. That if the Second Party shall make any misuse and theft of electricity etc. of the demised premises, then the Second Party shall be fully liable & responsible for the same on his / her own risk.\n20. That the First Party has received a sum of Rs. **${formData.security.toUpperCase()}** in advance as a Security amount which will be refundable after the expiry period of this rent agreement.\n21. That this Agreement has been prepared by the First Party at the expense of the Second Party and has been executed by the First Party & the Second Party.\n22.That this Rent Agreement is not valid for any bank loan & Credit Card.\n23. That after the expiry of this Agreement if both the parties have mutually agreed to extend the renting period then the rent will be increased **10%** minimum and maximum shall be depend at will on both parties\n24. That the period of tenancy can be renewed further with mutual consent of both the parties in writing.\n25. That the tenant shall abide by all the rules and regulations MCD / TPDDL / Delhi Administration or any other concerned authority remains. 
       `
 let text5=`\n**IN WITNESS WHEREOF**   the Second Party and First Party set their hands signatures on this Deed of Agreement at Delhi on the day month and year first mentioned above in the presence of the following witnesses:\n \n
 WITNESSES :-\n1.                                                              (FIRST PARTY)\n\n\n
